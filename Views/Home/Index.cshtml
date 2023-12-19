@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="col-sm-3">
+    <form class="mb-3 pt-3">
+        <div class="form-floating mb-3">
+            <input type="text" name="location" id="location" placeholder="Enter a location" class="form-control" />
+            <label for="location">Enter a location</label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    @if (ViewData["Error"] != null)
+    {
+        <p class="alert-danger p-1">@ViewData["Error"]</p>
+    }
+
+    @if (ViewData["Location"] != null)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewData["Location"]</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center">Current temp. <span
+                        class="badge bg-secondary rounded-pill">@ViewData["CurrentTemp"] &deg;C</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Min. temp. <span
+                        class="badge bg-secondary rounded-pill">@ViewData["MinTemp"] &deg;C</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Max. temp. <span
+                        class="badge bg-secondary rounded-pill">@ViewData["MaxTemp"] &deg;C</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Humidity <span
+                        class="badge bg-secondary rounded-pill">@ViewData["Humidity"]%</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Sunrise <span
+                        class="badge bg-secondary rounded-pill">@ViewData["Sunrise"]</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Sunset <span
+                        class="badge bg-secondary rounded-pill">@ViewData["Sunset"]</span></li>
+            </ul>
+        </div>
+    }
+</div>
